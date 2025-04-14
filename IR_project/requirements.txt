@@ -1,0 +1,6 @@
+# after completion of the project do:
+# pip freeze > requirements.txt
+
+# manual track:
+datasets
+word2number

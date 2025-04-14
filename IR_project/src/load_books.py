@@ -1,6 +1,16 @@
 import os
 import re
 
+from word2number import w2n
+
+
+def str_to_int(word):
+    """ Converts a string representation of a number to an integer. """
+    try:
+        return w2n.word_to_num(word.lower())
+    except ValueError:
+        return None
+
 
 def load_books_from_txt(folder_path):
     dataset = []
@@ -14,40 +24,72 @@ def load_books_from_txt(folder_path):
             lines = f.readlines()
 
         book_title = None
-        current_chapter = None
+        book_number = None
+        current_chapter_str_num = None
+        current_chapter_int_num = None
+        current_chapter_title = None
         current_text = []
 
-        for line in lines:
+        lines_iter = iter(lines)
+        for line in lines_iter:
             stripped = line.strip()
 
             if not stripped:
                 continue
 
-            # Match book title like: "HP 1 - Harry Potter and the Sorcerer's Stone"
+            # Match book titles like: "HP 1 - Harry Potter and the Sorcerer's Stone"
             if stripped.startswith("HP") and "Harry Potter" in stripped:
                 book_title = stripped
+                match = re.search(r"HP\s+(\d+)", stripped)
+                if match:
+                    book_number = int(match.group(1))
                 continue
 
-            # Match chapters like: "CHAPTER ONE", "CHAPTER TWO", etc.
+            # Match chapters like: "CHAPTER ONE"
             if re.match(r"^CHAPTER\s+\w+", stripped, re.IGNORECASE):
-                if current_chapter and current_text:
+                # Save previous chapter before starting new one
+                if current_chapter_str_num and current_text:
                     dataset.append({
                         "book": book_title,
-                        "chapter": current_chapter,
+                        "book_number": book_number,
+                        "chapter_str_number": current_chapter_str_num,
+                        "chapter_int_number": current_chapter_int_num,
+                        "chapter_title": current_chapter_title,
                         "text": " ".join(current_text)
                     })
                     current_text = []
-                current_chapter = stripped
+
+                current_chapter_str_num = stripped
+                current_chapter_int_num = str_to_int(stripped.split()[-1])
+
+                if current_chapter_int_num is None:
+                    print(f"[WARNING] Could not convert chapter number: '{stripped.split()[-1]}'")
+                    print(f"        Line: '{stripped}'")
+                    print(f"        Book: '{book_title}', File: {filename}")
+
+                # Next non-empty line = chapter title
+                while True:
+                    try:
+                        next_line = next(lines_iter).strip()
+                        if next_line:
+                            current_chapter_title = next_line
+                            break
+                    except StopIteration:
+                        current_chapter_title = ""
+                        break
                 continue
 
-            # Otherwise it's paragraph text
+            # Regular paragraph
             current_text.append(stripped)
 
-        # Add last chapter
-        if current_chapter and current_text:
+        # Save final chapter
+        if current_chapter_str_num and current_text:
             dataset.append({
                 "book": book_title,
-                "chapter": current_chapter,
+                "book_number": book_number,
+                "chapter_str_number": current_chapter_str_num,
+                "chapter_int_number": current_chapter_int_num,
+                "chapter_title": current_chapter_title,
                 "text": " ".join(current_text)
             })
 
