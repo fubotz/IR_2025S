@@ -19,5 +19,13 @@ def load_from_json(path):
         return json.load(f)
 
 
+def load_from_jsonl(path):
+    data = []
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            data.append(json.loads(line))
+    return data
+
+
 def convert_to_hf_dataset(data):
     return Dataset.from_list(data)
