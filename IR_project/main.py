@@ -30,7 +30,6 @@ def main():
             print("JSONL already exists, skipping save.")
 
     # Load from existing JSONL
-    print(f"\nLoading dataset from {jsonl_path}...")
     dataset = load_from_jsonl(jsonl_path)       # NB: jsonl better for hf dataset creation
 
     print(f"Loaded {len(dataset)} chapters.")
@@ -39,7 +38,7 @@ def main():
     # Convert to Hugging Face Dataset
     hf_dataset = convert_to_hf_dataset(dataset)
     print("Type:", type(hf_dataset))
-    # print("Example:", hf_dataset[0])
+    print("Example:", hf_dataset[0])
 
 
 if __name__ == "__main__":
