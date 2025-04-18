@@ -5,7 +5,7 @@ from word2number import w2n
 
 
 def str_to_int(word):
-    """ Converts a string representation of a number to an integer. """
+    """Converts a string representation of a number to an integer."""
     try:
         return w2n.word_to_num(word.lower())
     except ValueError:
@@ -13,6 +13,7 @@ def str_to_int(word):
 
 
 def load_books_from_txt(folder_path):
+    """Loads books from a folder of .txt files and returns a formatted dataset."""
     dataset = []
 
     for filename in sorted(os.listdir(folder_path)):

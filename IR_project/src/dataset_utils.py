@@ -5,7 +5,7 @@ from datasets import Dataset
 
 def save_to_json(dataset, output_path):
     with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(dataset, f, ensure_ascii=False, indent=2)
+        json.dump(dataset, f, ensure_ascii=False, indent=4)
 
 
 def save_to_jsonl(dataset, output_path):
