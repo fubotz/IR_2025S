@@ -7,14 +7,16 @@ from src.dataset_utils import (
     load_from_jsonl,
     convert_to_hf_dataset
 )
-from src.preprocessing import chunk_dataset
+from src.preprocessing_dense import chunk_dataset_dense
+from src.preprocessing_BM25 import chunk_dataset_bm25
 
 
 def main():
     dataset = None
     json_path = "data/processed/harry_potter_dataset.json"
     jsonl_path = "data/processed/harry_potter_dataset.jsonl"
-    chunked_output_path = "data/processed/hp_chunks.jsonl"
+    chunked_output_path_dense = "data/processed/hp_200w_chunks_dense.jsonl"
+    chunked_output_path_bm25 = "data/processed/hp_200w_chunks_bm25.jsonl"
 
     # JSON
     if not os.path.exists(json_path):
@@ -33,20 +35,30 @@ def main():
     else:
         print("JSONL already exists, skipping save.")
 
-    # JSONL_chunked
-    if not os.path.exists(chunked_output_path):
-        print("Chunked JSONL not found — chunking and saving to JSONL.")
+    # JSONL_chunked (BM25; sentence based)
+    if not os.path.exists(chunked_output_path_bm25):
         if dataset is None:
+            print("BM25 chunked JSONL not found — chunking and saving to JSONL.")
             dataset = load_from_jsonl(jsonl_path)
-        chunked_dataset = chunk_dataset(dataset, chunk_size=200, overlap=50)
-        save_to_jsonl(chunked_dataset, chunked_output_path)
+        chunked_dataset_bm25 = chunk_dataset_bm25(dataset, max_words=200)
+        save_to_jsonl(chunked_dataset_bm25, chunked_output_path_bm25)
+    else:
+        print("BM25 chunked JSONL already exists, skipping chunking.")
+
+    # JSONL_chunked (dense; 200 words, 50 overlap)
+    if not os.path.exists(chunked_output_path_dense):
+        if dataset is None:
+            print("Chunked JSONL not found — chunking and saving to JSONL.")
+            dataset = load_from_jsonl(jsonl_path)
+        chunked_dataset = chunk_dataset_dense(dataset, chunk_size=200, overlap=50)
+        save_to_jsonl(chunked_dataset, chunked_output_path_dense)
     else:
         print("Chunked JSONL already exists, skipping chunking.")
 
 
     # Load from existing JSONL
     dataset = load_from_jsonl(jsonl_path)
-    chunked_dataset = chunk_dataset(dataset, chunk_size=200, overlap=50)
+    chunked_dataset = chunk_dataset_dense(dataset, chunk_size=200, overlap=50)
 
     print(f"\nLoaded {len(dataset)} chapters.")
     print("Type:", type(dataset))
