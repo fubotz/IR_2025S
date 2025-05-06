@@ -20,20 +20,23 @@ It is designed as part of the *VU Information Extraction and Retrieval for Multi
 
 ```
 IR_2025S/
-├── src/
-│   └── IR_project/
-│       ├── __init__.py
-│       ├── main.py
-│       ├── indexer.py
-│       ├── retriever.py
-│       ├── utils.py
-│       └── ...
-├── data/
-│   └── harry_potter_books/   # cleaned raw texts or chunked documents
-├── tests/
-├── requirements.txt
-├── pyproject.toml
-└── README.md
+├── IR_project/
+│   ├── src/
+│   │   └── IR_project/
+│   │       ├── __init__.py
+│   │       ├── main.py
+│   │       ├── indexer.py
+│   │       ├── retriever.py
+│   │       ├── utils.py
+│   │       └── ...
+│   ├── data/
+│   │   └── harry_potter_books/   # cleaned raw texts or chunked documents
+│   ├── tests/
+│   ├── requirements.txt
+│   ├── pyproject.toml
+│   └── README.md
+├── lecture/
+│   └── ...                      # materials from the IR lecture
 ```
 
 ---
@@ -79,10 +82,9 @@ Top 3 matching passages:
 
 ## 📚 Data Source
 
-This project uses **cleaned versions** of the 7 Harry Potter books for educational purposes only.  
-The original texts are available from 
-[Kaggle](https://www.kaggle.com/datasets/shubhammaindola/harry-potter-books) and have been processed 
-to remove noise and irrelevant content.
+- This project uses **cleaned versions** of the 7 Harry Potter books for educational purposes only.  
+- The original texts are available from [Kaggle](https://www.kaggle.com/datasets/shubhammaindola/harry-potter-books) 
+and have been processed to remove noise and irrelevant content.
 ---
 
 ## 📌 Goals of the Project
