@@ -5,7 +5,7 @@ from IR_project.dataset_utils import (
     save_to_json,
     save_to_jsonl,
     load_from_jsonl,
-    convert_to_hf_dataset
+    convert_to_hf_datasets
 )
 from IR_project.preprocessing_dense import chunk_dataset_dense
 from IR_project.preprocessing_BM25 import chunk_dataset_bm25
