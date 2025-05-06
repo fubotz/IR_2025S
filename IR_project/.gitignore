@@ -1,0 +1,48 @@
+# ------------------------
+# Python
+# ------------------------
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# ------------------------
+# Jupyter Notebook
+# ------------------------
+.ipynb_checkpoints/
+
+# ------------------------
+# Conda environments
+# ------------------------
+env/
+venv/
+.venv/
+*.conda
+*.env
+*.env.bak
+
+# ------------------------
+# VSCode or PyCharm
+# ------------------------
+.vscode/
+.idea/
+
+# ------------------------
+# Logs and output
+# ------------------------
+*.log
+*.out
+
+# ------------------------
+# OS-specific
+# ------------------------
+.DS_Store
+Thumbs.db
+
+# ------------------------
+# Unit test cache
+# ------------------------
+.pytest_cache/
