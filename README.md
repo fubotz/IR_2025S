@@ -21,22 +21,24 @@ It is designed as part of the *VU Information Extraction and Retrieval for Multi
 ```
 IR_2025S/
 ├── IR_project/
-│   ├── src/
-│   │   └── IR_project/
-│   │       ├── __init__.py
-│   │       ├── main.py
-│   │       ├── indexer.py
-│   │       ├── retriever.py
-│   │       ├── utils.py
-│   │       └── ...
 │   ├── data/
-│   │   └── harry_potter_books/   # cleaned raw texts or chunked documents
-│   ├── tests/
-│   ├── requirements.txt
-│   ├── pyproject.toml
-│   └── README.md
+│   │   ├── processed/
+│   │   └── raw/
+│   ├── notebooks/
+│   └── src/
+│       └── IR_project/
+│           ├── __init__.py
+│           ├── main.py
+│           ├── indexer.py
+│           ├── retriever.py
+│           ├── utils.py
+│           └── ...
 ├── lecture/
-│   └── ...                      # materials from the IR lecture
+│   └── ...                      # materials from the IR_2025S lecture
+├── .gitignore
+├── pyproject.toml
+├── README.md
+└── requirements.txt
 ```
 
 ---
