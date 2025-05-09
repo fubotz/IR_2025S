@@ -35,6 +35,8 @@ IR_2025S/
 │           └── ...
 ├── lecture/
 │   └── ...                      # materials from the IR_2025S lecture
+├── tests/
+│   └── test.py
 ├── .gitignore
 ├── pyproject.toml
 ├── README.md
