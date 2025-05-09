@@ -49,7 +49,9 @@ def load_books_from_txt(folder_path):
             if re.match(r"^CHAPTER\s+\w+", stripped, re.IGNORECASE):
                 # Save previous chapter before starting new one
                 if current_chapter_str_num and current_text:
+                    chapter_id = f"{book_number}_{current_chapter_int_num}"
                     dataset.append({
+                        "chapter_id": chapter_id,
                         "book": book_title,
                         "book_number": book_number,
                         "chapter_str_number": current_chapter_str_num,
@@ -84,7 +86,9 @@ def load_books_from_txt(folder_path):
 
         # Save final chapter
         if current_chapter_str_num and current_text:
+            chapter_id = f"{book_number}_{current_chapter_int_num}"
             dataset.append({
+                "chapter_id": chapter_id,
                 "book": book_title,
                 "book_number": book_number,
                 "chapter_str_number": current_chapter_str_num,
