@@ -22,21 +22,26 @@ It is designed as part of the *VU Information Extraction and Retrieval for Multi
 IR_2025S/
 ├── IR_project/
 │   ├── data/
-│   │   ├── processed/
-│   │   └── raw/
-│   ├── notebooks/
+│   │   ├── raw/                             # .txt source files (one per book)
+│   │   └── processed/
+│   │       ├── dataset.json                 # canonical raw-parsed dataset
+│   │       ├── dataset.jsonl                # same as above, JSONL format
+│   │       └── dataset_preprocessed.json    # dataset with tokens added
+│   ├── notebooks/                           # Jupyter notebooks for exploration
+│   ├── scripts/
+│   │   ├── extract_data.py                  # script: convert .txt → dataset.json
+│   │   └── preprocess_data.py               # script: add tokens → dataset_preprocessed.json
 │   └── src/
 │       └── IR_project/
 │           ├── __init__.py
-│           ├── main.py
-│           ├── indexer.py
-│           ├── retriever.py
-│           ├── utils.py
-│           └── ...
-├── lecture/
-│   └── ...                      # materials from the IR_2025S lecture
+│           ├── dataset_utils.py             # save/load helpers
+│           ├── load_books.py                # .txt to JSON conversion logic
+│           ├── preprocessing.py /           # Preprocessor class (tokenization, cleaning)
+│           ├── indexer.py                   # inverted index creation (later step)
+│           └── retriever.py                 # document retrieval logic (e.g., BM25)
+├── lecture/                                 # lecture-related materials
 ├── tests/
-│   └── test.py
+│   └── test.py                              # test functions / unit tests
 ├── .gitignore
 ├── pyproject.toml
 ├── README.md
