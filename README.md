@@ -36,7 +36,7 @@ IR_2025S/
 │           ├── __init__.py
 │           ├── dataset_utils.py             # save/load helpers
 │           ├── load_books.py                # .txt to JSON conversion logic
-│           ├── preprocessing.py /           # Preprocessor class (tokenization, cleaning)
+│           ├── preprocessing.py             # Preprocessor class (tokenization, cleaning)
 │           ├── indexer.py                   # inverted index creation (later step)
 │           └── retriever.py                 # document retrieval logic (e.g., BM25)
 ├── lecture/                                 # lecture-related materials
