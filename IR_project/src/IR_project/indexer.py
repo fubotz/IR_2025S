@@ -33,7 +33,8 @@ class BooleanIndexerSQLite:
                 CREATE TABLE inverted_index (
                     token TEXT,
                     chapter_id TEXT,
-                    frequency INTEGER
+                    frequency INTEGER,
+                    UNIQUE(token, chapter_id)
                 );
             """)
             self.conn.execute("CREATE INDEX idx_token ON inverted_index(token);")
@@ -57,26 +58,36 @@ class BooleanIndexerSQLite:
                 tokens = entry["tokens"]
                 doc_length = len(tokens)
 
-                # Save chapter
+                # chapter
                 self.conn.execute("""
-                    INSERT OR REPLACE INTO chapters (chapter_id, book, chapter_title, text, doc_length)
+                    INSERT INTO chapters (chapter_id, book, chapter_title, text, doc_length)
                     VALUES (?, ?, ?, ?, ?)
+                    ON CONFLICT(chapter_id) DO UPDATE SET
+                        book = excluded.book,
+                        chapter_title = excluded.chapter_title,
+                        text = excluded.text,
+                        doc_length = excluded.doc_length
                 """, (chapter_id, book, title, text, doc_length))
 
-                # Count token frequencies
+                # index & frequencies
                 token_counts = Counter(tokens)
                 for token, freq in token_counts.items():
                     token_to_chapters[token].add(chapter_id)
                     self.conn.execute("""
                         INSERT INTO inverted_index (token, chapter_id, frequency)
                         VALUES (?, ?, ?)
+                        ON CONFLICT(token, chapter_id) DO UPDATE SET
+                            frequency = excluded.frequency
                     """, (token, chapter_id, freq))
 
-            # Fill vocabulary table
+            # vocabulary
             for token, chapters in token_to_chapters.items():
+                # noinspection SqlResolve
                 self.conn.execute("""
                     INSERT INTO vocabulary (token, document_frequency)
                     VALUES (?, ?)
+                    ON CONFLICT(token) DO UPDATE SET
+                        document_frequency = excluded.document_frequency
                 """, (token, len(chapters)))
 
     def close(self):
