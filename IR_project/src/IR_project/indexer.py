@@ -3,9 +3,8 @@ from pathlib import Path
 from collections import Counter, defaultdict
 
 
-
-
-# NB: implement phrase index? e.g. "harry potter"
+# NB: implement phrase index? e.g. "harry potter" --> bigram?
+# NB: implement positional index? e.g. "harry potter" --> [0, 1], [1, 2], [2, 3]...
 
 
 class BooleanIndexerSQLite:
@@ -21,15 +20,6 @@ class BooleanIndexerSQLite:
             self.conn.execute("DROP TABLE IF EXISTS vocabulary;")
 
             self.conn.execute("""
-                CREATE TABLE inverted_index (
-                    token TEXT,
-                    chapter_id TEXT,
-                    frequency INTEGER
-                );
-            """)
-            self.conn.execute("CREATE INDEX idx_token ON inverted_index(token);")
-
-            self.conn.execute("""
                 CREATE TABLE chapters (
                     chapter_id TEXT PRIMARY KEY,
                     book TEXT,
@@ -38,6 +28,15 @@ class BooleanIndexerSQLite:
                     doc_length INTEGER
                 );
             """)
+
+            self.conn.execute("""
+                CREATE TABLE inverted_index (
+                    token TEXT,
+                    chapter_id TEXT,
+                    frequency INTEGER
+                );
+            """)
+            self.conn.execute("CREATE INDEX idx_token ON inverted_index(token);")
 
             self.conn.execute("""
                 CREATE TABLE vocabulary (

@@ -4,6 +4,9 @@ from pathlib import Path
 from collections import defaultdict
 
 
+# add a base Retriever class to support hybrid retrieval?
+
+
 class BM25RetrieverSQLite:
     def __init__(self, db_path, k1=1.5, b=0.75):
         self.db_path = Path(db_path)
