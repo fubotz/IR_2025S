@@ -15,8 +15,8 @@ class Preprocessor:
         Custom tokenizer that ensures whitespace before punctuation.
         E.g., "Hello!" -> ["Hello", "!"]
         """
-        spaced = re.sub(r"([^\w\s])", r" \1 ", text)
-        spaced = re.sub(r"\s{2,}", " ", spaced)
+        spaced = re.sub(r"([^\w\s])", r" \1 ", text)        # add space around punctuation
+        spaced = re.sub(r"\s{2,}", " ", spaced)     # remove extra spaces
         return spaced.strip().split()
 
 

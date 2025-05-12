@@ -15,7 +15,7 @@ build/
 .ipynb_checkpoints/
 
 # ------------------------
-# Conda environments
+# Conda & virtual environments
 # ------------------------
 env/
 venv/
@@ -25,10 +25,11 @@ venv/
 *.env.bak
 
 # ------------------------
-# VSCode or PyCharm
+# IDEs (VSCode, PyCharm)
 # ------------------------
 .vscode/
 .idea/
+identifier.sqlite
 
 # ------------------------
 # Logs and output
@@ -37,7 +38,7 @@ venv/
 *.out
 
 # ------------------------
-# OS-specific
+# OS-specific files
 # ------------------------
 .DS_Store
 Thumbs.db
