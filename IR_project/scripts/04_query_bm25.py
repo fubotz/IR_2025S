@@ -47,3 +47,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# in Terminal:
+# conda activate IR_2025S
+# python IR_project/scripts/04_query_bm25.py "dobby sock" --topk 5
