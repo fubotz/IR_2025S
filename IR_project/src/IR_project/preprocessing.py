@@ -9,7 +9,6 @@ class Preprocessor:
         self.preserve_punct = preserve_punct
         self.nlp = spacy.load("en_core_web_sm", disable=["ner", "parser"])
 
-
     def tokenize(self, text):
         """
         Custom tokenizer that ensures whitespace before punctuation.
@@ -18,7 +17,6 @@ class Preprocessor:
         spaced = re.sub(r"([^\w\s])", r" \1 ", text)        # add space around punctuation
         spaced = re.sub(r"\s{2,}", " ", spaced)     # remove extra spaces
         return spaced.strip().split()
-
 
     def normalize(self, tokens):
         """
@@ -35,11 +33,9 @@ class Preprocessor:
             normalized.append(norm.lower())
         return normalized
 
-
     def preprocess_text(self, text):
         tokens = self.tokenize(text)
         return self.normalize(tokens)
-
 
     def preprocess_dataset(self, dataset):
         for entry in dataset:

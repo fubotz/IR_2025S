@@ -1,6 +1,11 @@
-from pathlib import Path
 import sqlite3
+from pathlib import Path
 from collections import Counter, defaultdict
+
+
+
+
+# NB: implement phrase index? e.g. "harry potter"
 
 
 class BooleanIndexerSQLite:
@@ -29,7 +34,8 @@ class BooleanIndexerSQLite:
                     chapter_id TEXT PRIMARY KEY,
                     book TEXT,
                     chapter_title TEXT,
-                    text TEXT
+                    text TEXT,
+                    doc_length INTEGER
                 );
             """)
 
@@ -50,12 +56,13 @@ class BooleanIndexerSQLite:
                 title = entry["chapter_title"]
                 text = entry["text"]
                 tokens = entry["tokens"]
+                doc_length = len(tokens)
 
                 # Save chapter
                 self.conn.execute("""
-                    INSERT OR REPLACE INTO chapters (chapter_id, book, chapter_title, text)
-                    VALUES (?, ?, ?, ?)
-                """, (chapter_id, book, title, text))
+                    INSERT OR REPLACE INTO chapters (chapter_id, book, chapter_title, text, doc_length)
+                    VALUES (?, ?, ?, ?, ?)
+                """, (chapter_id, book, title, text, doc_length))
 
                 # Count token frequencies
                 token_counts = Counter(tokens)
