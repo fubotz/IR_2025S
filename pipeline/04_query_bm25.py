@@ -50,4 +50,4 @@ if __name__ == "__main__":
 
 # in Terminal:
 # conda activate IR_2025S
-# python IR_project/scripts/04_query_bm25.py "dobby sock" --topk 5
+# python pipeline/04_query_bm25.py "dobby sock" --topk 5

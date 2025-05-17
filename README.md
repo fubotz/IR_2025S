@@ -46,11 +46,16 @@ IR_2025S/
 ├── pyproject.toml
 ├── README.md
 └── requirements.txt
+
+--> new structure!!!
 ```
 
 ---
 
 ## ⚙️ Setup Instructions
+
+--> new setup instructions!!!
++ spacy download en_core_web_sm
 
 1. **Create and activate environment**:
    ```bash
