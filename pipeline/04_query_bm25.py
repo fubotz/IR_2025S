@@ -51,3 +51,12 @@ if __name__ == "__main__":
 # in Terminal:
 # conda activate IR_2025S
 # python pipeline/04_query_bm25.py "dobby sock" --topk 5
+
+
+#indexer next step
+#retriever
+#faiss embeddings
+#query embeddings query hybrid (BM25 + dense retrieval)
+#hybrid = reciprocal rank fusion
+#ranking
+#
