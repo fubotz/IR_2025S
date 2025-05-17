@@ -1,6 +1,6 @@
 from pathlib import Path
-from IR_project.load_books import load_books_from_txt
-from IR_project.dataset_utils import save_to_json, save_to_jsonl
+from IR_2025S.load_books import load_books_from_txt
+from IR_2025S.dataset_utils import save_to_json, save_to_jsonl
 
 
 def main():

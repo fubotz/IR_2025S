@@ -1,6 +1,6 @@
 from pathlib import Path
-from IR_project.dataset_utils import save_to_json, convert_to_hf_dataset, load_from_json
-from IR_project.preprocessing import Preprocessor
+from IR_2025S.dataset_utils import save_to_json, convert_to_hf_dataset, load_from_json
+from IR_2025S.preprocessing import Preprocessor
 
 
 def main():

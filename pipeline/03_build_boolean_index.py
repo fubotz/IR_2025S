@@ -1,6 +1,6 @@
 from pathlib import Path
-from IR_project.dataset_utils import load_from_json
-from IR_project.indexer import BooleanIndexerSQLite
+from IR_2025S.dataset_utils import load_from_json
+from IR_2025S.indexer import BooleanIndexerSQLite
 
 
 def main():

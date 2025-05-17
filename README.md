@@ -80,7 +80,7 @@ IR_2025S/
 You can run a basic search query from the command line:
 
 ```bash
-python -m IR_project.main --query "quidditch match"
+python -m IR_2025S.main --query "quidditch match"
 ```
 
 Example output:

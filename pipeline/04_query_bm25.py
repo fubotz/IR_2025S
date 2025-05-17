@@ -1,12 +1,12 @@
 import sys
 from pathlib import Path
 
-# Fix Python path to point to src/ folder where the IR_project module lives
+# Fix Python path to point to src/ folder where the IR_2025S module lives
 sys.path.append(str(Path(__file__).resolve().parents[1] / "src"))
 
 import argparse
-from IR_project.preprocessing import Preprocessor
-from IR_project.retriever import BM25RetrieverSQLite
+from IR_2025S.preprocessing import Preprocessor
+from IR_2025S.retriever import BM25RetrieverSQLite
 
 
 def main():
