@@ -20,76 +20,74 @@ It is designed as part of the *VU Information Extraction and Retrieval for Multi
 
 ```
 IR_2025S/
-├── IR_project/
-│   ├── data/
-│   │   ├── raw/                             # .txt source files (one per book)
-│   │   └── processed/
-│   │       ├── dataset.json                 # canonical raw-parsed dataset
-│   │       ├── dataset.jsonl                # same as above, JSONL format
-│   │       └── dataset_preprocessed.json    # dataset with tokens added
-│   ├── notebooks/                           # Jupyter notebooks for exploration
-│   ├── scripts/
-│   │   ├── extract_data.py                  # script: convert .txt → dataset.json
-│   │   └── preprocess_data.py               # script: add tokens → dataset_preprocessed.json
-│   └── src/
-│       └── IR_project/
-│           ├── __init__.py
-│           ├── dataset_utils.py             # save/load helpers
-│           ├── load_books.py                # .txt to JSON conversion logic
-│           ├── preprocessing.py             # Preprocessor class (tokenization, cleaning)
-│           ├── indexer.py                   # inverted index creation (later step)
-│           └── retriever.py                 # document retrieval logic (e.g., BM25)
-├── lecture/                                 # lecture-related materials
+├── data/
+│   ├── processed/
+│   │   ├── boolean_index.db
+│   │   ├── dataset.json
+│   │   ├── dataset.jsonl
+│   │   └── dataset_preprocessed.json
+│   └── raw/
+├── lecture/
+├── pipeline/
+│   ├── 01_extract_data.py
+│   ├── 02_preprocess_data.py
+│   ├── 03_build_boolean_index.py
+│   └── 04_query_bm25.py
+├── src/
+│   └── IR_2025S/
+│       ├── __init__.py
+│       ├── dataset_utils.py
+│       ├── indexer.py
+│       ├── load_books.py
+│       ├── preprocessing.py
+│       └── retriever.py
 ├── tests/
-│   └── test.py                              # test functions / unit tests
+│   └── main.py
 ├── .gitignore
-├── pyproject.toml
-├── README.md
-└── requirements.txt
-
---> new structure!!!
+├── environment.yml
+└── README.md
 ```
 
 ---
 
 ## ⚙️ Setup Instructions
 
---> new setup instructions!!!
-+ spacy download en_core_web_sm
-
-1. **Create and activate environment**:
+1. **Create and activate a conda environment from .yml file**:
    ```bash
-   conda create -n IR_2025S python=3.10
+   conda env create -f environment.yml
    conda activate IR_2025S
    ```
 
-2. **Install dependencies**:
+2. **Download the required spaCy language model**:
    ```bash
-   pip install -r requirements.txt
+   python -m spacy download en_core_web_sm
    ```
 
 3. **Install the project in editable mode** (optional):
    ```bash
    pip install -e .
    ```
-
 ---
 
 ## 🚀 How to Use
 
 You can run a basic search query from the command line:
 
-```bash
-python -m IR_2025S.main --query "quidditch match"
-```
+   ```bash
+   python pipeline/04_query_bm25.py "dobby sock" --topk 3
+   ```
 
 Example output:
 
 ```
-Top 3 matching passages:
-1. "Harry caught the Snitch after an intense Quidditch match..."
-2. "The crowd roared as Gryffindor secured the win..."
-3. ...
+🔎 Query: dobby sock  (Top 3 results)
+
+1. 📘 HP 2 - Harry Potter and The Chamber of Secrets — DOBBY’S REWARD (2_18)
+   For a moment there was silence as Harry, Ron, Ginny, and Lockhart stood in the doorway,...
+2. 📘 HP 4 - Harry Potter and The Goblet of Fire — THE HOUSE-ELF LIBERATION FRONT (4_21)
+   Harry, Ron, and Hermione went up to the Owlery that evening to find Pigwidgeon,...
+3. 📘 HP 4 - Harry Potter and The Goblet of Fire — THE YULE BALL (4_23)
+   Despite the very heavy load of homework that the fourth years had been given...
 ```
 
 ---
