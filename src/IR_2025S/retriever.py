@@ -4,9 +4,6 @@ from pathlib import Path
 from collections import defaultdict
 
 
-# add a base Retriever class to support hybrid retrieval?
-
-
 class BM25RetrieverSQLite:
     def __init__(self, db_path, k1=1.5, b=0.75):
         self.db_path = Path(db_path)
@@ -34,7 +31,7 @@ class BM25RetrieverSQLite:
         rows = self.conn.execute("""
             SELECT chapter_id, frequency FROM inverted_index WHERE token = ?
         """, (token,)).fetchall()
-        return rows     # list of (chapter_id, frequency)
+        return rows
 
     def _get_doc_lengths(self, chapter_ids):
         placeholders = ",".join("?" for _ in chapter_ids)
@@ -42,7 +39,7 @@ class BM25RetrieverSQLite:
         rows = self.conn.execute(query, tuple(chapter_ids)).fetchall()
         return {cid: length for cid, length in rows}
 
-    def rank(self, query_tokens, top_n=5):
+    def rank(self, query_tokens, top_n=5, return_scores=False):
         scores = defaultdict(float)
         doc_lengths = {}
 
@@ -64,7 +61,19 @@ class BM25RetrieverSQLite:
                 scores[chapter_id] += idf * tf_component
 
         ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-        return self._fetch_chapter_metadata([cid for cid, _ in ranked[:top_n]])
+        top_chapter_ids = [cid for cid, _ in ranked[:top_n]]
+
+        if return_scores:
+            metadata = self._fetch_chapter_metadata(top_chapter_ids)
+            score_dict = dict(ranked[:top_n])
+
+            results = []
+            for chapter_id, book, chapter_title, text in metadata:
+                score = score_dict.get(chapter_id, 0.0)
+                results.append((score, chapter_id, book, chapter_title, text))
+            return results
+        else:
+            return self._fetch_chapter_metadata(top_chapter_ids)
 
     def _fetch_chapter_metadata(self, chapter_ids):
         if not chapter_ids:
@@ -76,6 +85,9 @@ class BM25RetrieverSQLite:
             WHERE chapter_id IN ({placeholders})
         """
         return self.conn.execute(query, tuple(chapter_ids)).fetchall()
+
+    def rank_with_scores(self, query_tokens, top_n=5):
+        return self.rank(query_tokens, top_n=top_n, return_scores=True)
 
     def close(self):
         self.conn.close()
