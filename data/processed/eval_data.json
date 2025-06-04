@@ -1,0 +1,472 @@
+[
+  {
+    "query": "What are the four houses of Hogwarts?",
+    "answers": [
+      "Gryffindor",
+      "Slytherin",
+      "Ravenclaw",
+      "Hufflepuff"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "\u201cThe four houses are called Gryffindor, Hufflepuff, Ravenclaw, and Slytherin."
+      },
+      {
+        "text": "Enormous silk banners hung from the walls, each of them representing a Hogwarts House: red with a gold lion for Gryffiindor, blue with a bronze eagle for Ravenclaw, yellow with a black badger for Hufflepuff, and green with a silver serpent for Slytherin."
+      },
+      {
+        "text": "The four school Houses are named after them: Godric Gryffindor, Helga Hufflepuff, Rowena Ravenclaw, and Salazar Slytherin."
+      },
+      {
+        "text": "Every year, this aged old hat, patched, frayed, and dirty, sorted new students into the four Hogwarts houses (Gryffindor, Hufflepuff, Ravenclaw, and Slytherin)."
+      },
+      {
+        "text": "Professors Flitwick, Sprout and McGonagall are going to take groups of fighters up to the three highest towers - Ravenclaw, Astronomy, and Gryffindor - where they'll have good overview, excellent positions from which to work spells."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "Behind the teachers' table, the largest banner of all bore the Hogwarts coat of arms: lion, eagle, badger, and snake united around a large letter H."
+      },
+      {
+        "text": "A battle plan has been agreed between the teachers of Hogwarts and the Order of the Phoenix."
+      },
+      {
+        "text": "Hogwarts is not a school for mad people."
+      }
+    ]
+  },
+  {
+    "query": "Who gave Harry his first birthday cake?",
+    "answers": [
+      "Hagrid"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "And then on Harry's birthday (which the Dursleys had completely ignored) he had received four superb birthday cakes, one each from Ron, Hermione, Hagrid, and Sirius."
+      },
+      {
+        "text": "As Harry's birthday dinner would have stretched the Burrow's kitchen to breaking point even before the arrival of Charlie, Lupin, Tonks, and Hagrid, several tables were placed end to end in the garden."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "A curly-haired third-year Hufflepuff girl to whom Harry had never spoken in his life asked him to go to the ball with her the very next day."
+      },
+      {
+        "text": "Harrys presents included a sweater with a large Golden Snitch worked onto the front, handknitted by Mrs."
+      },
+      {
+        "text": "Harry watched her out of sight, then crawled under his bed, wrenched up the loose floorboard, and pulled out a large chunk of birthday cake."
+      }
+    ]
+  },
+  {
+    "query": "What kind of creature is Hedwig?",
+    "answers": [
+      "Owl",
+      "Snowy owl"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "The only gesture he had made to the possibility of a journey was to shut his snowy owl, Hedwig, safely in her cage."
+      },
+      {
+        "text": "He spotted Hedwig nestled between a barn owl and a tawny, and hurried over to her, sliding a little on the dropping-strewn floor."
+      },
+      {
+        "text": "Hedwig was swaying on her shoulder, and she was carrying a squirming Crookshanks in her arms. 'Mum and Dad just sent Hedwig back.' The owl fluttered obligingly over and perched on top of her cage. 'Are you ready yet?' 'Nearly."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "One of them, the large snowy female, was his own Hedwig."
+      },
+      {
+        "text": "And there was the Horntail, at the other end of the enclosure, crouched low over her clutch of eggs, her wings half-furled, her evil, yellow eyes upon him, a monstrous, scaly, black lizard, thrashing her spiked tail, heaving yard-long gouge marks in the hard ground."
+      },
+      {
+        "text": "There was a loud crack, and a houseelf appeared, with a snout for a nose, giant bat\u2019s ears, and enormous bloodshot eyes, crouching on the Dursleys\u2019 shag carpet and covered in grimy rags."
+      }
+    ]
+  },
+  {
+    "query": "Who is Harry Potter's godfather?",
+    "answers": [
+      "Sirius Black"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "I, Sirius Black, Harry Potter\u2019s godfather, hereby give him permission to visit Hogsmeade at weekends. \u2018That\u2019ll be good enough for Dumbledore!\u2019 said Harry happily."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "Then they named him godfather to Harry."
+      },
+      {
+        "text": "\u201cAnd I understand; with James as your father, with Sirius as your godfather, you have inherited an old prejudice."
+      },
+      {
+        "text": "Or our son, Draco?\u201d \u201cHow do you do, how do you do?\u201d said Fudge, smiling and bowing to Mrs."
+      }
+    ]
+  },
+  {
+    "query": "What is the name of Harry's owl?",
+    "answers": [
+      "Hedwig"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "The only gesture he had made to the possibility of a journey was to shut his snowy owl, Hedwig, safely in her cage."
+      },
+      {
+        "text": "Uncle Vernon had even padlocked Harry\u2019s owl, Hedwig, inside her cage, to stop her from carrying messages to anyone in the wizarding world."
+      },
+      {
+        "text": "\u201cTHAT RUDDY OWL!\u201d \u201cI\u2019ve forgotten Hedwig!\u201d Harry tore back across the room as the landing light clicked on \u2014 he snatched up Hedwig\u2019s cage, dashed to the window, and passed it out to Ron."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "The owl dropped its letter onto Harry\u2019s seat and began zooming around their compartment, apparently very pleased with itself for accomplishing its task."
+      },
+      {
+        "text": "Harry now carried a large cage that held a beautiful snowy owl, fast asleep with her head under her wing."
+      },
+      {
+        "text": "Each of them was pushing a trunk like Harry\u2019s in front of him \u2014 and they had an owl."
+      }
+    ]
+  },
+  {
+    "query": "Who is the headmaster of Hogwarts for most of the series?",
+    "answers": [
+      "Albus Dumbledore"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "\u201cAlbus Dumbledore is the greatest headmaster Hogwarts has ever had."
+      },
+      {
+        "text": "He pulled out the letter and read: HOGWARTS SCHOOL of WITCHCRAFT and WIZARDRY Headmaster: ALBUS DUMBLEDORE (Order of Merlin, First Class, Grand Sorc., Chf."
+      },
+      {
+        "text": "BY ORDER OF THE MINISTRY OF MAGIC Dolores Jane Umbridge (High Inquisitor) has replaced Albus Dumbledore as Head of Hogwarts School of Witchcraft and Wizardry."
+      },
+      {
+        "text": "\u201cThis could be a plea for attention.\u201d The Daily Prophet, however, has unearthed worrying facts about Harry Potter that Albus Dumbledore, Headmaster of Hogwarts, has carefully concealed from the wizarding public."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "\u201cSeverus Snape, long-standing Potions master at Hogwarts School of Witchcraft and wizardry, was today appointed headmaster in the most important of several staffing changes at the ancient school."
+      },
+      {
+        "text": "Every headmaster and headmistress o( Hogwarts has brought something new to the weighty task of governing this historic school, and that is as it should be, lor without progress there will be stagnation and decay."
+      },
+      {
+        "text": "Neither his father, nor his father\u2019s friends, had been at Hogwarts fifty years ago."
+      }
+    ]
+  },
+  {
+    "query": "What platform does the Hogwarts Express leave from?",
+    "answers": [
+      "Platform 9 and 3/4",
+      "Nine and three-quarters"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "The Hogwarts Express will leave from King\u2019s Cross Station, platform nine and three-quarters, at eleven o\u2019clock."
+      },
+      {
+        "text": "Once inside the station they lingered casually beside the barrier between platforms nine and ten until the coast was clear, then each of them leaned against it in turn and fell easily through on to platform nine and three-quarters, where the Hogwarts Express stood belching sooty steam over a platform packed with departing students and their families."
+      },
+      {
+        "text": "Next moment, they had fallen sideways through the solid metal onto platform nine and three-quarters and looked up to see the Hogwarts Express, a scarlet steam engine, puffing smoke over a platform packed with witches and wizards seeing their children onto the train."
+      },
+      {
+        "text": "Instead, the family emerged onto platform nine and three-quarters, which was obscured by thick white steam that was pouring from the scarlet Hogwarts Express."
+      },
+      {
+        "text": "The rest of the journey passed pleasantly enough; Harry wished it could have gone on all summer, in fact, and that he would never arrive at King's Cross\u2026but as he had learned the hard way that year, time will not slow down when something unpleasant lies ahead, and all too soon, the Hogwarts Express was pulling in at platform nine and three-quarters."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "He pushed his trolley directly at the solid barrier, ignoring his silent companion, and found himself, a second later, standing on platform nine and threequarters, where the scarlet Hogwarts Express stood belching steam over the crowd."
+      },
+      {
+        "text": "Harry\u2019s told him to catch the Hogwarts Express as usual from King\u2019s Cross station on September first."
+      },
+      {
+        "text": "He didn't talk much as they changed into their school robes, and was still glowering when the Hogwarts Express slowed down at last and finally stopped in the pitch-darkness of Hogsmeade station."
+      }
+    ]
+  },
+  {
+    "query": "What spell is used to disarm an opponent?",
+    "answers": [
+      "Expelliarmus"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "He could not understand how it had happened - Expelliarmus was not a Freezing Charm - Then, by the light of the Mark, he saw Dumbledore\u2019s wand flying in an arc over the edge of the ramparts and understood \u2026 Dumbledore had wordlessly immobilised Harry, and the second he had taken to perform the spell had cost him the chance of defending himself."
+      },
+      {
+        "text": "Lockhart had barely raised his, when Harry bellowed, \u201cExpelliarmus!\u201d Lockhart was blasted backward, falling over his trunk; his wand flew high into the air; Ron caught it, and flung it out of the open window."
+      },
+      {
+        "text": "Predictably, Neville was left partnerless. 'You can practise with me,' Harry told him. 'Right - on the count of three, then - one, two, three -' The room was suddenly full of shouts of Expelliarmus."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "One of the wands will force the other to regurgitate spells it has performed - in reverse."
+      },
+      {
+        "text": "He takes it apart, puts spells on it, and puts it back together again."
+      },
+      {
+        "text": "A battle plan has been agreed between the teachers of Hogwarts and the Order of the Phoenix."
+      }
+    ]
+  },
+  {
+    "query": "What spell produces light?",
+    "answers": [
+      "Lumos"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "If only it would move, then he\u2019d know whether it was just a stray cat or \u2013 something else. \u2018Lumos,\u2019 Harry muttered, and a light appeared at the end of his wand, almost dazzling him."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "One of the wands will force the other to regurgitate spells it has performed - in reverse."
+      },
+      {
+        "text": "Wands only choose witches or wizards."
+      },
+      {
+        "text": "Most wizards need to use a wand, or potions, to change their appearance."
+      }
+    ]
+  },
+  {
+    "query": "What is the name of Hagrid's pet dragon?",
+    "answers": [
+      "Norbert",
+      "Norberta"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "Hagrid would have liked nothing better than a pet dragon, as Harry, Ron, and Hermione knew only too well - he had owned one for a brief period during their first year, a vicious Norwegian Ridgeback by the name of Norbert."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "Last year, however, Hagrid used his mysterious influence over the headmaster to secure the additional post of Care of Magical Creatures teacher, over the heads of many better-qualified candidates."
+      },
+      {
+        "text": "The few owls that managed to battle their way through the stormy sky to deliver mail had to be nursed back to health by Hagrid before they could fly off again."
+      },
+      {
+        "text": "\u201cDragon blood's amazingly magical, but you wouldn't want a dragon for a pet, would you?\u201d Harry and Ron grinned at Hagrid, who gave them a furtive smile from behind his bushy beard."
+      }
+    ]
+  },
+  {
+    "query": "What position does Harry play in Quidditch?",
+    "answers": [
+      "Seeker"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "He was Captain and Seeker of the Hufflepuff House Quidditch team at Hogwarts."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "Even Quidditch - in Harry's opinion, the best sport in the world - couldn't distract him at the moment."
+      },
+      {
+        "text": "Harry had his wand raised, waiting on tenterhooks to repel a jinx that seemed unlikely ever to come."
+      },
+      {
+        "text": "Harry, however, was shaken awake several hours earlier than he would have liked by Oliver Wood, Captain of the Gryffindor Quidditch team."
+      }
+    ]
+  },
+  {
+    "query": "Who is the house-elf that serves the Malfoy family?",
+    "answers": [
+      "Dobby"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "Weasley were none other than Dobby the house-elf's former owners: Lucius Malfoy; his son, Draco; and a woman Harry supposed must be Draco's mother."
+      },
+      {
+        "text": "\u201cDobby almost spoke ill of his family, sir.\u2026\u201d \u201cYour family?\u201d \u201cThe wizard family Dobby serves, sir.\u2026Dobby is a house-elf \u2014 bound to serve one house and one family forever.\u2026\u201d \u201cDo they know you\u2019re here?\u201d asked Harry curiously."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "Harry raised his wand arm, which felt like lead, and murmured \u201cAguamenti\u201d too: Together, he and Hagrid poured water on the house until the last flame was extinguished."
+      },
+      {
+        "text": "\u201cHouse-elves does what they is told."
+      },
+      {
+        "text": "The name Malfoy still commands a certain respect, yet the Ministry grows ever more meddlesome."
+      }
+    ]
+  },
+  {
+    "query": "Who kills Bellatrix Lestrange?",
+    "answers": [
+      "Molly Weasley"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "Harry watched with terror and elation as Molly Weasley's wand slashed and twisted, and Bellatrix Lestrange's smile faltered and became a snarl."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "Bellatrix Lestrange, Sirius\u2019s killer, inherit his house?"
+      },
+      {
+        "text": "Bellatrix Lestrange, convicted of the torture and permanent inca-pacitation of Frank and Alice Longbottom."
+      },
+      {
+        "text": "Bellatrix Lestrange was striding across the lawn toward them, accompanied by Griphook."
+      }
+    ]
+  },
+  {
+    "query": "What is the name of Voldemort's snake?",
+    "answers": [
+      "Nagini"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "However, he was the able-bodied servant I needed, and, poor wizard though he is, Wormtail was able to follow the instructions I gave him, which would return me to a rudimentary, weak body of my own, a body I would be able to inhabit while awaiting the essential ingredients for true rebirth\u2026a spell or two of my own invention\u2026a little help from my dear Nagini,\u201d Voldemort's red eyes fell upon the continually circling snake, \"a potion concocted from unicorn blood, and the snake venom Nagini provided\u2026I was soon returned to an almost human form, and strong enough to travel."
+      },
+      {
+        "text": "He saw Voldemort standing a little in front of him, stroking Nagini's head with a single white finger."
+      },
+      {
+        "text": "Now Harry opened his eyes a fraction, and saw Voldemort striding in front them, wearing the great snake Nagini around his shoulders, now free of her enchanted cage."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "\u201cAnd you, Draco?\u201d asked Voldemort, stroking the snake\u2019s snout with his wand-free hand."
+      },
+      {
+        "text": "Voldemort has promised him prey in return for his services."
+      },
+      {
+        "text": "The huge snake emerged to climb slowly up Voldemort\u2019s chair."
+      }
+    ]
+  },
+  {
+    "query": "Who is the author of 'A History of Magic'?",
+    "answers": [
+      "Bathilda Bagshot"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "He not only won every prize of note that the school offered, he was soon in regular correspondence with the most notable magical names of the day, including Nicolas Flamel, the celebrated alchemist; Bathilda Bagshot, the noted historian; and Adalbert Waffling, the magical theoretician."
+      },
+      {
+        "text": "He recognized one as a part of an old edition of A History of Magic, by Bathilda Bagshot, and another as belonging to a motorcycle maintenance manual."
+      },
+      {
+        "text": "He rushed on: \u201cShe said Bathilda Bagshot still lived in Godric\u2019s Hollow.\u201d \u201cBathilda Bagshot,\u201d murmured Hermione, running her index finger over Bathilda\u2019s embossed name on the front cover of A History of Magic."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "History of Magic was by common consent the most boring subject ever devised by wizardkind."
+      },
+      {
+        "text": "As I reveal in chapter sixteen, Ivor Dillonsby claims he had already discovered eight uses of dragon's blood when Dumbledore 'borrowed' his papers.\u201d But the importance of some of Dumbledore's achievements cannot, I venture, be denied."
+      },
+      {
+        "text": "He pretended to congratulate the three brothers upon their magic, and said that each had earned a prize for having been clever enough to evade him."
+      }
+    ]
+  },
+  {
+    "query": "Who is the Half-Giant friend of Harry?",
+    "answers": [
+      "Hagrid"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "\u201cYou're half-giant,\u201d said Lupin, looking up at Hagrid."
+      },
+      {
+        "text": "Barricade myself in my study and refuse to talk to anybody?\u201d \u201cYeh - yeh're not half-giant!\u201d said Hagrid croakily."
+      },
+      {
+        "text": "And he had promised that he, Ron and Hermione would continue Hagrid's totally pointless attempts to civilise the giant."
+      },
+      {
+        "text": "Ron and Harry wasted no time in telling Hermione about the conversation they had overheard between Madame Maxime and Hagrid, but Hermione didn't seem to find the news that Hagrid was a half-giant nearly as shocking as Ron did."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "It is believed that Muggle-born Dean Thomas and a second goblin, both believed to have been traveling with Tonks, Cresswell, and Gornuk, may have escaped."
+      },
+      {
+        "text": "Harry was separated from him by Mundungus and Mad-Eye, who had dropped in to offer Mr Weasley their congratulations."
+      },
+      {
+        "text": "Nothing in the room, however, was more dramatically different than the house-elf who now came hurrying toward Harry, dressed in a snowy-white towel, his ear hair as clean and fluffy as cotton wool, Regulus\u2019s locket bouncing on his thin chest."
+      }
+    ]
+  },
+  {
+    "query": "Who is the ghost of Gryffindor House?",
+    "answers": [
+      "Nearly Headless Nick"
+    ],
+    "positive_ctxs": [
+      {
+        "text": "Nearly Headless Nick, the ghost of Gryffindor Tower, was staring morosely out of a window, muttering under his breath, \u201c\u2026don\u2019t fulfill their requirements\u2026half an inch, if that\u2026\u201d \u201cHello, Nick,\u201d said Harry."
+      },
+      {
+        "text": "The moment they reached Gryffindors, Ginny was hailed by some fellow fourth-years and left to sit with them; Harry, Ron, Hermione and Neville found seats together about halfway down the table between Nearly Headless Nick, the Gryffindor house ghost, and Parvati Patil and Lavender Brown, the last two of whom gave Harry airy, overly-friendly greetings that made him quite sure they had stopped talking about him a split second before."
+      },
+      {
+        "text": "He was very conscious that Ginny, Neville, Dean, and Seamus were listening in; even Nearly Headless Nick, the Gryffindor ghost, had come floating along the bench to eavesdrop."
+      },
+      {
+        "text": "I need to talk to you!\u201d He forced his way back through the tide of students, finally reaching the bottom of the stairs, where Nearly Headless Nick, ghost of Gryffindor Tower, stood waiting for him."
+      },
+      {
+        "text": "Harry, Ron, and Hermione walked past the Slytherins, the Ravenclaws, and the Hufflepuffs, and sat down with the rest of the Gryffindors at the far side of the Hall, next to Nearly Headless Nick, the Gryffindor ghost."
+      }
+    ],
+    "negative_ctxs": [
+      {
+        "text": "The Hat considered for a moment, then the rip near the brim opened again and shouted: 'Gryffindor!' Harry clapped loudly with the rest of Gryffindor house as Euan Abercrombie staggered to their table and sat down, looking as though he would like very much to sink through the floor and never be looked at again."
+      },
+      {
+        "text": "She\u2019s still acting like Scabbers has gone on holiday or something.\u2019 The Gryffindor party only ended when Professor McGonagall turned up in her tartan dressing gown and hair-net at one in the morning, to insist that they all went to bed."
+      },
+      {
+        "text": "The Gryffindor Quidditch team, spattered with mud from head to foot, was gathered around his bed."
+      }
+    ]
+  }
+]
