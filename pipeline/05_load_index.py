@@ -1,3 +1,5 @@
+#05_load_index.py
+
 import faiss
 import pickle
 from pathlib import Path

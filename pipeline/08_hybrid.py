@@ -1,25 +1,20 @@
-# pipeline/08_hybrid.py
-#
+# Update the 08_hybrid.py script to reflect new weighted hybrid behavior and keep argparse in __main__
+
+
 import sys
 from pathlib import Path
+from typing import List
 
 # Add src/ to Python path
 sys.path.append(str(Path(__file__).resolve().parents[1] / "src"))
 
 import argparse
 from IR_2025S.preprocessing import Preprocessor
-from IR_project.hybrid_retriever import HybridRetriever
+from IR_2025S.hybrid_retriever import HybridRetriever
 
-
-def main():
-    parser = argparse.ArgumentParser(description="Query Hybrid (BM25 + Dense) Retrieval")
-    parser.add_argument("query", type=str, help="Search query (e.g. 'dobby house elf')")
-    parser.add_argument("--topk", type=int, default=5, help="Number of results to return")
-    parser.add_argument("--alpha", type=float, default=0.5, help="Weight for dense vs BM25 (0=BM25 only, 1=dense only)")
-    args = parser.parse_args()
-
+def run_hybrid_query(query: str, topk: int = 5, alpha: float = 0.5) -> List[dict]:
     # Define paths
-    root_dir = Path(__file__).resolve().parents[1]  # IR_2025S/
+    root_dir = Path(__file__).resolve().parents[1]
     processed_path = root_dir / "data" / "processed"
     bm25_db_path = processed_path / "boolean_index.db"
     dense_index_path = processed_path / "harry_dense_index"
@@ -28,20 +23,34 @@ def main():
     hybrid_retriever = HybridRetriever(
         bm25_db_path=str(bm25_db_path),
         dense_index_path=str(dense_index_path),
-        alpha=args.alpha
+        alpha=alpha
     )
 
     # Preprocess query
     preprocessor = Preprocessor(stopwords=True, lemmatize=True, preserve_punct=False)
-    query_tokens = preprocessor.preprocess_text(args.query)
-
-    print(f"\n🔍 Hybrid Query: {args.query}")
-    print(f"🔧 Processed tokens: {' '.join(query_tokens)}")
-    print(f"⚖️ Alpha (dense weight): {args.alpha}")
-    print(f"📊 Top {args.topk} results\n")
+    query_tokens = preprocessor.preprocess_text(query)
 
     # Run hybrid search
-    results = hybrid_retriever.search(args.query, query_tokens=query_tokens, top_k=args.topk)
+    results = hybrid_retriever.search(query, query_tokens=query_tokens, top_k=topk)
+    hybrid_retriever.close()
+    return results
+
+def main():
+    parser = argparse.ArgumentParser(description="Query Hybrid (BM25 + Dense) Retrieval with Weighted Fusion")
+    parser.add_argument("query", type=str, help="Search query (e.g. 'dobby house elf')")
+    parser.add_argument("--topk", type=int, default=5, help="Number of results to return")
+    parser.add_argument("--alpha", type=float, default=0.5, help="Weight for dense vs BM25 (0=BM25 only, 1=dense only)")
+    args = parser.parse_args()
+
+    results = run_hybrid_query(
+        query=args.query,
+        topk=args.topk,
+        alpha=args.alpha
+    )
+
+    print(f"\\n🔍 Hybrid Query: {args.query}")
+    print(f"⚖️ Alpha (dense weight): {args.alpha}")
+    print(f"📊 Top {args.topk} results\\n")
 
     if not results:
         print("❌ No results found.")
@@ -52,19 +61,8 @@ def main():
             print(f"   📚 BM25 Score: {result['bm25_score']:.4f}")
             print(f"   🤖 Dense Score: {result['dense_score']:.4f}")
             print(f"   📖 BM25 Snippet: {result['bm25_text']}")
-            print(f"   🧠 Dense Snippet: {result['dense_text']}\n")
-
-            bm25_text = result.get("bm25_text", "[No BM25 text available]")
-            dense_text = result.get("dense_text", "[No dense text available]")
-
-            print(f"   📖 BM25 Snippet: {bm25_text[:300].replace(chr(10), ' ')}...")
-            print(f"   🧠 Dense Snippet: {dense_text[:300].replace(chr(10), ' ')}...\n")
-
-    # Close DB connection
-    hybrid_retriever.close()
-
-
-print(f"HybridRetriever class loaded from: {HybridRetriever.__module__}")
+            print(f"   🧠 Dense Snippet: {result['dense_text']}\\n")
 
 if __name__ == "__main__":
     main()
+

@@ -1,4 +1,4 @@
-# pipeline/06_query_dense.py#
+# pipeline/07_query_dense.py#
 #
 import sys
 from pathlib import Path
@@ -68,3 +68,4 @@ if __name__ == "__main__":
 
 #run with
 #python pipeline/07_dense_query.py "What is Hogwarts?" --topk 5
+#test ##
