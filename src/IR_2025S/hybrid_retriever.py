@@ -85,3 +85,4 @@ class HybridRetriever:
 
 
 # python pipeline/08_hybrid.py "hogwarts school" --alpha 0.6 --topk 5
+#python -m spacy download en_core_web_sm
