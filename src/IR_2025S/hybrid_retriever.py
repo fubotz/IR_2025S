@@ -1,6 +1,8 @@
 # Updated HybridRetriever using normalized score fusion (alpha-weighted) instead of RRF
 
-from typing import List, Dict, Tuple
+# IR_2025S/hybrid_retriever.py
+
+from typing import List, Dict
 import numpy as np
 from collections import defaultdict
 from IR_2025S.retriever import BM25RetrieverSQLite
@@ -8,13 +10,10 @@ from IR_2025S.dense_retriever import DenseRetrieverFAISS
 from IR_2025S.preprocessing import Preprocessor
 from sklearn.preprocessing import MinMaxScaler
 
+DEFAULT_ALPHA = 0.5  # Best alpha from evaluation
+
 class HybridRetriever:
-
-
-    def __init__(self,
-                 bm25_db_path: str,
-                 dense_index_path: str,
-                 alpha: float = 0.5):
+    def __init__(self, bm25_db_path: str, dense_index_path: str, alpha: float = DEFAULT_ALPHA):
         self.alpha = alpha
         self.bm25_retriever = BM25RetrieverSQLite(bm25_db_path)
         self.dense_retriever = DenseRetrieverFAISS()
@@ -25,10 +24,7 @@ class HybridRetriever:
             return {}
         keys = list(scores.keys())
         values = np.array(list(scores.values())).reshape(-1, 1)
-        if len(values) > 1:
-            normalized = MinMaxScaler().fit_transform(values).flatten()
-        else:
-            normalized = np.ones_like(values).flatten()
+        normalized = MinMaxScaler().fit_transform(values).flatten() if len(values) > 1 else np.ones_like(values).flatten()
         return dict(zip(keys, normalized))
 
     def search(self, query: str, query_tokens: List[str] = None, top_k: int = 5) -> List[Dict]:
@@ -36,18 +32,15 @@ class HybridRetriever:
             preprocessor = Preprocessor(stopwords=True, lemmatize=True, preserve_punct=False)
             query_tokens = preprocessor.preprocess_text(query)
 
-        # Retrieve from both retrievers
         bm25_results = self.bm25_retriever.rank_with_scores(query_tokens, top_n=top_k * 2)
         dense_results = self.dense_retriever.search(query, top_k=top_k * 2)
 
-        # Extract and normalize scores
         bm25_scores = {cid: score for score, cid, *_ in bm25_results}
         dense_scores = {meta['chapter_id']: score for score, meta in dense_results}
 
         norm_bm25 = self.normalize_scores(bm25_scores)
         norm_dense = self.normalize_scores(dense_scores)
 
-        # Combine scores using weighted sum
         combined_scores = defaultdict(float)
         all_doc_ids = set(norm_bm25.keys()).union(norm_dense.keys())
         for doc_id in all_doc_ids:
@@ -56,10 +49,8 @@ class HybridRetriever:
                 (1 - self.alpha) * norm_bm25.get(doc_id, 0.0)
             )
 
-        # Sort by combined score
         sorted_docs = sorted(combined_scores.items(), key=lambda x: x[1], reverse=True)[:top_k]
 
-        # Assemble enriched results
         results = []
         for doc_id, combined_score in sorted_docs:
             bm25_score = bm25_scores.get(doc_id, 0.0)
@@ -81,7 +72,6 @@ class HybridRetriever:
 
     def close(self):
         self.bm25_retriever.close()
-
 
 
 # python pipeline/08_hybrid.py "hogwarts school" --alpha 0.6 --topk 5
