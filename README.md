@@ -8,11 +8,11 @@ It is designed as part of the *VU Information Extraction and Retrieval for Multi
 
 ## 🔍 Features
 
-- Indexing of all 7 Harry Potter books (cleaned, structured)
-- Text preprocessing (tokenization, normalization, etc.)
-- Query-based document/passage retrieval
-- Support for different retrieval models (e.g. BM25, dense embeddings)
-- Integration with a Retrieval-Augmented Generation (RAG) chatbot
+- Indexing of all 7 Harry Potter books (cleaned, structured) ✅
+- Text preprocessing (tokenization, normalization, etc.) ✅
+- Query-based document/passage retrieval ✅
+- Support for different retrieval models (e.g. BM25, dense embeddings) ✅
+- Integration with a Retrieval-Augmented Generation (RAG) chatbot ⏳
 
 ---
 
