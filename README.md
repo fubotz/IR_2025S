@@ -95,7 +95,7 @@ You can run a basic search query from the command line:
 Example output:
 
 ```
-🔎 Query: dobby sock  (Top 3 results)
+🔎 Sparse Query: dobby sock  (Top 3 results)
 
 1. 📘 HP 2 - Harry Potter and The Chamber of Secrets — DOBBY’S REWARD (2_18)
    For a moment there was silence as Harry, Ron, Ginny, and Lockhart stood in the doorway,...
