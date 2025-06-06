@@ -88,6 +88,7 @@ You can run a basic search query from the command line:
    ```bash
    python pipeline/04_query_bm25.py "dobby sock" --topk 3
    python pipeline/08_hybrid.py "harry potter godfather"
+   python pipeline/07_dense_query.py "What is Hogwarts?" --topk 5
    python pipeline/09_evaluate_pipeline.py data/processed/eval_data.json --topk 5 (for alpha value)
    ```
 
@@ -103,7 +104,30 @@ Example output:
 3. 📘 HP 4 - Harry Potter and The Goblet of Fire — THE YULE BALL (4_23)
    Despite the very heavy load of homework that the fourth years had been given...
 
-🔎 Query: harry potter godfather  (Top 5 results)
+🔍 Dense Query: What is Hogwarts?  (Top 5 results)
+
+1. 📘 HP 6 - Harry Potter and the Half-Blood Prince — THE SECRET RIDDLE (6_13)
+   Score: 0.6958
+   Paragraph 189: Hogwarts is not a school for mad people....
+
+2. 📘 HP 6 - Harry Potter and the Half-Blood Prince — HORCRUXES (6_23)
+   Score: 0.6709
+   Paragraph 81: It’s a banned subject at Hogwarts, you know. . . ....
+
+3. 📘 HP 4 - Harry Potter and The Goblet of Fire — BEAUXBATONS AND DURMSTRANG (4_15)
+   Score: 0.6681
+   Paragraph 105: Behind the teachers' table, the largest banner of all bore the Hogwarts coat of arms: lion, eagle, badger, and snake united around a large letter H....
+
+4. 📘 HP 6 - Harry Potter and the Half-Blood Prince — A VERY FROSTY CHRISTMAS (6_16)
+   Score: 0.6677
+   Paragraph 163: Neither his father, nor his father’s friends, had been at Hogwarts fifty years ago....
+
+5. 📘 HP 6 - Harry Potter and the Half-Blood Prince — A SLUGGISH MEMORY (6_17)
+   Score: 0.6448
+   Paragraph 164: Finally he was forced to accept that his father had never set foot in Hogwarts....
+
+
+🔎 Hybrid Query: harry potter godfather  (Top 5 results)
 🔍 Hybrid Query: harry potter godfather
 ⚖️ Alpha (dense weight): 0.5
 📊 Top 5 results
